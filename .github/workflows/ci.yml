@@ -1,0 +1,13 @@
+name: Testes dos algoritmos de roteamento
+on:
+  push:
+  pull_request:
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Compilar com GCC (C11)
+        run: make
+      - name: Conferir os resultados de Bellman-Ford e Dijkstra
+        run: make test

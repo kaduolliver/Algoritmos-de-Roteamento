@@ -1,0 +1,200 @@
+
+=== CENARIO INICIAL: BELLMAN-FORD ===
+Enlaces (bidirecionais):
+  A -- B : 4
+  A -- C : 2
+  B -- C : 1
+  B -- D : 5
+  C -- D : 8
+  C -- E : 10
+  D -- E : 2
+Conexoes diretas por roteador:
+  A: B C (2 interfaces/enlaces)
+  B: A C D (3 interfaces/enlaces)
+  C: A B D E (4 interfaces/enlaces)
+  D: B C E (3 interfaces/enlaces)
+  E: C D (2 interfaces/enlaces)
+
+Rodada 0 (custos conhecidos):
+     A    B    C    D    E
+A     0    4    2  INF  INF
+B     4    0    1    5  INF
+C     2    1    0    8   10
+D   INF    5    8    0    2
+E   INF  INF   10    2    0
+
+Rodada 1 (custos conhecidos):
+     A    B    C    D    E
+A     0    3    2    9   12
+B     3    0    1    5    7
+C     2    1    0    6   10
+D     9    5    6    0    2
+E    12    7   10    2    0
+
+Rodada 2 (custos conhecidos):
+     A    B    C    D    E
+A     0    3    2    8   11
+B     3    0    1    5    7
+C     2    1    0    6    8
+D     8    5    6    0    2
+E    11    7    8    2    0
+
+Rodada 3 (custos conhecidos):
+     A    B    C    D    E
+A     0    3    2    8   10
+B     3    0    1    5    7
+C     2    1    0    6    8
+D     8    5    6    0    2
+E    10    7    8    2    0
+
+Rodada 4 (custos conhecidos):
+     A    B    C    D    E
+A     0    3    2    8   10
+B     3    0    1    5    7
+C     2    1    0    6    8
+D     8    5    6    0    2
+E    10    7    8    2    0
+Sem alteracoes nesta rodada: tabelas estabilizadas.
+
+ROTAS FINAIS (INICIAL)
+
+Tabela do roteador A:
+Origem -> Destino | Custo | Proximo salto
+A -> A |     0 | local
+A -> B |     3 | C
+A -> C |     2 | C
+A -> D |     8 | C
+A -> E |    10 | C
+
+Tabela do roteador B:
+Origem -> Destino | Custo | Proximo salto
+B -> A |     3 | C
+B -> B |     0 | local
+B -> C |     1 | C
+B -> D |     5 | D
+B -> E |     7 | D
+
+Tabela do roteador C:
+Origem -> Destino | Custo | Proximo salto
+C -> A |     2 | A
+C -> B |     1 | B
+C -> C |     0 | local
+C -> D |     6 | B
+C -> E |     8 | B
+
+Tabela do roteador D:
+Origem -> Destino | Custo | Proximo salto
+D -> A |     8 | B
+D -> B |     5 | B
+D -> C |     6 | B
+D -> D |     0 | local
+D -> E |     2 | E
+
+Tabela do roteador E:
+Origem -> Destino | Custo | Proximo salto
+E -> A |    10 | D
+E -> B |     7 | D
+E -> C |     8 | D
+E -> D |     2 | D
+E -> E |     0 | local
+
+ALTERACAO: custo B-D de 5 para 2.
+
+=== CENARIO FINAL: BELLMAN-FORD ===
+Enlaces (bidirecionais):
+  A -- B : 4
+  A -- C : 2
+  B -- C : 1
+  B -- D : 2
+  C -- D : 8
+  C -- E : 10
+  D -- E : 2
+Conexoes diretas por roteador:
+  A: B C (2 interfaces/enlaces)
+  B: A C D (3 interfaces/enlaces)
+  C: A B D E (4 interfaces/enlaces)
+  D: B C E (3 interfaces/enlaces)
+  E: C D (2 interfaces/enlaces)
+
+Rodada 0 (custos conhecidos):
+     A    B    C    D    E
+A     0    4    2  INF  INF
+B     4    0    1    2  INF
+C     2    1    0    8   10
+D   INF    2    8    0    2
+E   INF  INF   10    2    0
+
+Rodada 1 (custos conhecidos):
+     A    B    C    D    E
+A     0    3    2    6   12
+B     3    0    1    2    4
+C     2    1    0    3   10
+D     6    2    3    0    2
+E    12    4   10    2    0
+
+Rodada 2 (custos conhecidos):
+     A    B    C    D    E
+A     0    3    2    5    8
+B     3    0    1    2    4
+C     2    1    0    3    5
+D     5    2    3    0    2
+E     8    4    5    2    0
+
+Rodada 3 (custos conhecidos):
+     A    B    C    D    E
+A     0    3    2    5    7
+B     3    0    1    2    4
+C     2    1    0    3    5
+D     5    2    3    0    2
+E     7    4    5    2    0
+
+Rodada 4 (custos conhecidos):
+     A    B    C    D    E
+A     0    3    2    5    7
+B     3    0    1    2    4
+C     2    1    0    3    5
+D     5    2    3    0    2
+E     7    4    5    2    0
+Sem alteracoes nesta rodada: tabelas estabilizadas.
+
+ROTAS FINAIS (FINAL)
+
+Tabela do roteador A:
+Origem -> Destino | Custo | Proximo salto
+A -> A |     0 | local
+A -> B |     3 | C
+A -> C |     2 | C
+A -> D |     5 | C
+A -> E |     7 | C
+
+Tabela do roteador B:
+Origem -> Destino | Custo | Proximo salto
+B -> A |     3 | C
+B -> B |     0 | local
+B -> C |     1 | C
+B -> D |     2 | D
+B -> E |     4 | D
+
+Tabela do roteador C:
+Origem -> Destino | Custo | Proximo salto
+C -> A |     2 | A
+C -> B |     1 | B
+C -> C |     0 | local
+C -> D |     3 | B
+C -> E |     5 | B
+
+Tabela do roteador D:
+Origem -> Destino | Custo | Proximo salto
+D -> A |     5 | B
+D -> B |     2 | B
+D -> C |     3 | B
+D -> D |     0 | local
+D -> E |     2 | E
+
+Tabela do roteador E:
+Origem -> Destino | Custo | Proximo salto
+E -> A |     7 | D
+E -> B |     4 | D
+E -> C |     5 | D
+E -> D |     2 | D
+E -> E |     0 | local
