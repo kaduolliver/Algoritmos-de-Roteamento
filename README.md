@@ -2,8 +2,6 @@
 
 Implementações comentadas em **C11** de **Bellman-Ford (vetor de distâncias)** e **Dijkstra (estado de enlace)**, acompanhadas dos resultados experimentais para a atividade de Laboratório de Redes de Computadores.
 
-> Os arquivos `respostas.md` e `respostas.pdf` são mantidos apenas localmente e estão excluídos do repositório pelo `.gitignore`.
-
 ## Topologia dos roteadores
 
 O mesmo grafo de **5 roteadores (A–E)** é utilizado nos dois programas. Todos têm pelo menos **2 enlaces bidirecionais**: A (2), B (3), C (4), D (3) e E (2). Cada roteador também possui uma tabela com rotas para todos os demais.
