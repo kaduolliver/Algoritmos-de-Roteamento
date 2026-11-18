@@ -1,0 +1,15 @@
+# Binarios e arquivos de compilacao
+bellman_ford
+bellman_ford.exe
+dijkstra
+dijkstra.exe
+*.o
+*.obj
+*.out
+# Arquivos locais
+respostas.md
+respostas.pdf
+__pycache__/
+.vscode/
+.idea/
+.DS_Store
